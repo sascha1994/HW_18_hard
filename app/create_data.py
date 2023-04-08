@@ -1,7 +1,7 @@
+from app.dao.model.director import Director
+from app.dao.model.genre import Genre
+from app.dao.model.movie import Movie
 from app.database import db
-
-from app.models import Movie, Director, Genre
-
 
 def create_data():
     db.create_all()
