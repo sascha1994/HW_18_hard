@@ -8,22 +8,17 @@ class MovieDAO:
     def get_one(self, mid):
         return self.session.query(Movie).get(mid)
 
-    def get_all(self, ):
+    def get_all(self):
         return self.session.query(Movie).all()
 
-        # director_id = data['director_id']
-        # genre_id = data['genre_id']
-        # year = data['year']
-        # if director_id and genre_id:
-        #     return self.session.query(Movie).filter_by(director_id=director_id, genre_id=genre_id).all()
-        # elif director_id:
-        #     return self.session.query(Movie).filter_by(director_id=director_id).all()
-        # elif genre_id:
-        #     return self.session.query(Movie).filter_by(genre_id=genre_id).all()
-        # elif year:
-        #     return self.session.query(Movie).filter_by(year=year).all()
-        # else:
-        #     return self.session.query(Movie).all()
+    def get_by_director_id(self, value):
+        return self.session.query(Movie).filter(Movie.director_id == value).all()
+
+    def get_by_genre_id(self, value):
+        return self.session.query(Movie).filter(Movie.genre_id == value).all()
+
+    def get_by_year(self, value):
+        return self.session.query(Movie).filter(Movie.year == value).all()
 
     def create(self, data):
         new_movie = Movie(**data)
