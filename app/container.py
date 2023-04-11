@@ -3,6 +3,7 @@ from app.dao.genre import GenreDAO
 from app.dao.movie import MovieDAO
 from app.dao.user import UserDAO
 from app.database import db
+from app.services.auth import AuthService
 from app.services.director import DirectorService
 from app.services.genre import GenreService
 from app.services.movie import MovieService
@@ -19,3 +20,5 @@ director_service = DirectorService(director_dao)
 
 user_dao = UserDAO(db.session)
 user_service = UserService(user_dao)
+
+auth_service = AuthService(user_service)

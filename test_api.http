@@ -1,5 +1,7 @@
 GET http://127.0.0.1:5000/movies/
 Accept: application/json
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4iLCJyb2xlIjoidXNlciIsImV4cCI6MTY4MTIzNTY5N30.HHbgfolxaFjConLDnuF4HIP3xmWASlqjL1vw-_CdADs
+
 
 ###
 
@@ -93,6 +95,8 @@ Content-Type: application/json
 
 DELETE http://127.0.0.1:5000/movies/21
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZXhwIjoxNjgxMjM1NDQ0fQ.VoPS0OTFNOUdnIkrezzx-0qLMJyYAtuamZX7k7M3oRU
+
 
 ###
 
@@ -106,5 +110,61 @@ Accept: application/json
 
 ###
 
+POST http://127.0.0.1:5000/users/
+Accept: application/json
+Content-Type: application/json
 
+{
+  "username": "John",
+  "password": "test",
+  "role": "user"
+}
+
+###
+
+POST http://127.0.0.1:5000/users/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "Admin",
+  "password": "test",
+  "role": "admin"
+}
+
+###
+
+DELETE http://127.0.0.1:5000/users/4
+Accept: application/json
+
+###
+
+PATCH http://127.0.0.1:5000/users/5
+Accept: application/json
+Content-Type: application/json
+
+{
+  "password": "test2"
+}
+
+###
+
+POST http://127.0.0.1:5000/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "John",
+  "password": "test"
+}
+
+###
+POST http://127.0.0.1:5000/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "Admin",
+  "password": "test"
+}
 

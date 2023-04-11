@@ -7,6 +7,7 @@ from app.database import db
 from app.views.directors.directors import directors_ns
 from app.views.genres.genres import genres_ns
 from app.views.movies.movies import movies_ns
+from app.views.users.auth import auth_ns
 from app.views.users.user import users_ns
 
 
@@ -24,6 +25,7 @@ def register_extensions(application: Flask):
     api.add_namespace(genres_ns)
     api.add_namespace(directors_ns)
     api.add_namespace(users_ns)
+    api.add_namespace(auth_ns)
 
 
 if __name__ == '__main__':
