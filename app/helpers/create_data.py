@@ -1,7 +1,9 @@
 from app.dao.model.director import Director
 from app.dao.model.genre import Genre
 from app.dao.model.movie import Movie
+from app.dao.model.user import User
 from app.database import db
+
 
 def create_data():
     db.create_all()
@@ -207,6 +209,14 @@ def create_data():
             {"name": "Мелодрама", "pk": 13}, {"name": "Детектив", "pk": 14}, {"name": "Авторское кино", "pk": 15},
             {"name": "Мультфильм", "pk": 16}, {"name": "Вестерн", "pk": 17}, {"name": "Мюзикл", "pk": 18}],
     }
+
+    user_data = {
+        "users": [
+            {"username": "vasya", "password": "my_little_pony", "role": "user"},
+            {"username": "oleg", "password": "qwerty", "role": "user"},
+            {"username": "oleg", "password": "P@ssw0rd", "role": "admin"}]
+    }
+
     # -------------------------------------------------------
     if not db.session.query(Movie).first():
         db.session.close()
@@ -239,3 +249,12 @@ def create_data():
             )
             with db.session.begin():
                 db.session.add(d)
+
+        for user in user_data['users']:
+            u = User(
+                username=user["username"],
+                password=user["password"],
+                role=user["role"],
+            )
+            with db.session.begin():
+                db.session.add(u)
